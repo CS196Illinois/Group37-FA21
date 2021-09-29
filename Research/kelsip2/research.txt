@@ -1,3 +1,6 @@
 git interactive tutorial: I learned how to use commits, a head, and different functions in order to move around the order of things in git. 
 
+react tutorial: I completed the react tutorial and coded the game and realized that a lot of the frontend stuff can be completed on react. For example the tic tac toe game in the tutorial had a lot of frontend components and incorporated HTML.
+
 research: The data set that is used for the GPA calculator can be found here: https://github.com/wadefagen/datasets/tree/master/gpa
+There are many different numbers that we can pull and calculate the average with. 
