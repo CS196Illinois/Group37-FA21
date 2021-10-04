@@ -1,0 +1,19 @@
+I first began my research by learning some basic React through the various tutorials. I then 
+looked into gpa datasets for uiuc courses. Best website that I found was:
+https://waf.cs.illinois.edu/discovery/gpa_of_every_course_at_illinois/
+This shows the gpa of every course as well as course size updated as of August 22, 2021. 
+https://raw.githubusercontent.com/wadefagen/datasets/master/gpa/uiuc-gpa-dataset.csv
+This link provides all of the data in a nice organized set. 
+
+The first tuorial was building a simple tic tac toe game given some starter code and guidance. 
+I was only able to write code in the browser and was unable to properly run the code in vscode. 
+I figured out that you can create a react app using the command 'npx create-react-app "appname"',
+opening the folder, and starting it in the browser. After this, I could not figure out what to do.
+"tic-tac-toe-tutorial" shows my attempt at setting up the local environment for the tictoetoe game.
+"TicTacToe.js" shows the actual code that I worked on in the browser. 
+
+The freecodecamp and codevolution tutorials helped explain setting up the code on vscode a little better than React's 
+official tutorial; however, it still remains fuzzy to me. I still don't understand how to implement the tic tac toe code 
+into the app files.
+
+I dabbled slightly into MUI and can see that it would help us create a good looking user interface.
