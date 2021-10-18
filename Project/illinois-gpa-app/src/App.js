@@ -1,24 +1,36 @@
+import React from 'react';
 import './App.css';
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import { Typography } from '@mui/material'
+import { AppBar, Toolbar, Typography, Container } from '@material-ui/core';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import MainMenu from'./components/Menu.js';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#d84315',
+    },
+    secondary: {
+      main: '#002171',
+    },
+  }
+})
 
 function App() {
   return (
-    <body>
       <div className="App">
-        <AppBar position="sticky">
-          <Toolbar>
-            <IconButton aria-label="app" color="inherit">
-            </IconButton>
-            <Typography variant="h6"> Illinois GPA Wiki </Typography>
-          </Toolbar>
-        </AppBar>
-        <h1> Insert Graph Here? </h1>
-        <h2> Description? </h2>
+        <ThemeProvider theme={theme}>
+          <Container>
+            <AppBar color="primary">
+              <Toolbar>
+                <MainMenu />
+                <Typography variant="h6">
+                  Illinois GPA Wiki
+                </Typography>
+              </Toolbar>
+            </AppBar>
+          </Container>
+        </ThemeProvider>
       </div>
-    </body>
   );
 }
 
