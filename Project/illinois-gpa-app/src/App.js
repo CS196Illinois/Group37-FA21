@@ -1,26 +1,21 @@
+// UofI orange: "#E84A27"
+// UofI blue: "#13294B"
+
 import React from 'react';
 import './App.css';
-import { AppBar, Toolbar, Typography, Container } from '@material-ui/core';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
-import MainMenu from'./components/Menu.js';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#d84315',
-    },
-    secondary: {
-      main: '#002171',
-    },
-  }
-})
+import { Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Feedback from './components/Feedback';
+import Tool from './components/Tool';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import MainMenu from'./components/Menu';
 
 function App() {
-  return (
+    return (
       <div className="App">
-        <ThemeProvider theme={theme}>
-          <Container>
-            <AppBar color="primary">
+        
+        {/* Navbar */}
+            <AppBar style={{ background: '#E84A27' }}>
               <Toolbar>
                 <MainMenu />
                 <Typography variant="h6">
@@ -28,10 +23,17 @@ function App() {
                 </Typography>
               </Toolbar>
             </AppBar>
-          </Container>
-        </ThemeProvider>
+        
+        {/* BrowserRouter */}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/Tool" component={Tool} />
+          <Route path="/Feedback" component={Feedback} />
+        </Switch>
+
       </div>
-  );
+    );
 }
+
 
 export default App;

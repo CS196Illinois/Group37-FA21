@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu'
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default function MainMenu() {
     const[anchorEl, setAnchorEl] = React.useState(null);
@@ -31,9 +32,9 @@ export default function MainMenu() {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}> Home </MenuItem>
-          <MenuItem onClick={handleClose}> GPA Tool </MenuItem>
-          <MenuItem onClick={handleClose}> Feedback </MenuItem>
+          <MenuItem onClick={handleClose} component={Link} to="/"> Home </MenuItem>
+          <MenuItem onClick={handleClose} component={Link} to="/Tool"> GPA Tool </MenuItem>
+          <MenuItem onClick={handleClose} component={Link} to="/Feedback"> Feedback </MenuItem>
         </Menu>
       </>
     )
