@@ -15,14 +15,14 @@ function App() {
       <div className="App">
         
         {/* Navbar */}
-            <AppBar style={{ background: '#E84A27' }}>
-              <Toolbar>
-                <MainMenu />
-                <Typography variant="h6">
-                  Illinois GPA Wiki
-                </Typography>
-              </Toolbar>
-            </AppBar>
+        <AppBar style={{ background: '#E84A27' }}>
+          <Toolbar>
+            <MainMenu />
+            <Typography variant="h6">
+              Illinois GPA Wiki
+            </Typography>
+          </Toolbar>
+        </AppBar>
         
         {/* BrowserRouter */}
         <Switch>
