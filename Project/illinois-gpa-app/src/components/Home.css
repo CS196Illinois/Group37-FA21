@@ -1,0 +1,32 @@
+.Home{
+    height: 100vh;
+}
+
+h1{
+    color: rgb(5, 5, 83);
+    font-size: 40px;
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+}
+h3{
+    color: rgb(5, 5, 83);
+    font-size: 25px;
+}
+.Description1{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.Description2{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+.Break{
+    font-size: 20px;
+    color:white; 
+}

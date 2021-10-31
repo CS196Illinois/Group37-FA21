@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Tools.css"
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from 'recharts';
 function App() {
 
