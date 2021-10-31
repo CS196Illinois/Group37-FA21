@@ -1,6 +1,3 @@
-// UofI orange: "#E84A27"
-// UofI blue: "#13294B"
-
 import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
@@ -28,12 +25,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/Tool" component={Tool} />
-          <Route path="/Feedback" component={Feedback} />
+          <Route path="/Feedback" component={Feedback} />\
         </Switch>
 
       </div>
     );
 }
-
 
 export default App;
