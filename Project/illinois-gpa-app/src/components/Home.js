@@ -9,7 +9,7 @@ class Home extends Component {
                     <div className="Header">
                     <h1> Home </h1>
                     <img className="logo" src={Logo} alt=""/>
-                    <h1 className="Break">hle</h1>
+                    <h1 className="Break">.</h1>
                     </div>
                     <div className="Description1">
                     <h3>About This Site</h3>
