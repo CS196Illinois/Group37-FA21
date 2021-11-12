@@ -10,6 +10,7 @@ h1{
 .logo{
     height: 100px;
     width: 100px;
+    padding-bottom: 70px;
 }
 h3{
     color: rgb(5, 5, 83);

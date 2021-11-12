@@ -8,8 +8,7 @@ class Home extends Component {
                 <div>
                     <div className="Header">
                     <h1> Home </h1>
-                    <img className="logo" src={Logo} alt=""/>
-                    <h1 className="Break">.</h1>
+                    <img className="logo" src={Logo} alt=""/> 
                     </div>
                     <div className="Description1">
                     <h3>About This Site</h3>
