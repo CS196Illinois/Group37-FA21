@@ -108,11 +108,11 @@ function App() {
     var title = graphData[0].subject + ' Courses'
 
     return (
-        <div>
+        <div className = "Tool">
 
             <h1> Tool </h1>
     
-            <ScatterChart width={600} height={650} margin={{bottom: 25, top: 25}}>
+            <ScatterChart width={1400} height={675} margin={{left: 400, right: 400, bottom: 25, top: 50}}>
                 <CartesianGrid />
                 <XAxis type="number" dataKey="x" name="Course Number">
                     <Label value="Course Number" dy={20} position="outsideBottom" />
