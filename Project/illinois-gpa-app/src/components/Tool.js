@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Tools.css";
 import data from "../data/data.js";
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Label, Tooltip } from 'recharts';
 
 // Course object model
 class Course {
@@ -68,15 +68,16 @@ for (var i = 0; i < data.length; i++) {
         courseList.push(course)
     }
 }
-for (var i = 0; i < courseList.length; i++) {
-    courseList[i].students = 
-        courseList[i].aPlus + courseList[i].a + courseList[i].aMinus + courseList[i].bPlus +
-        courseList[i].b + courseList[i].bMinus + courseList[i].cPlus + courseList[i].c + courseList[i].cMinus +
-        courseList[i].dPlus + courseList[i].d + courseList[i].dMinus + courseList[i].f
-    courseList[i].gpa = 
-        (courseList[i].aPlus * 4 + courseList[i].a * 4 + courseList[i].aMinus * 3.67 + courseList[i].bPlus * 3.33 + 
-        courseList[i].b * 3 + courseList[i].bMinus * 2.67 + courseList[i].cPlus * 2.33 + courseList[i].c * 2 + courseList[i].cMinus * 
-        1.67 + courseList[i].dPlus * 1.33 + courseList[i].d * 1+ courseList[i].dMinus * 0.67 + courseList[i].f * 0) / courseList[i].students
+for (var k = 0; k < courseList.length; k++) {
+    courseList[k].students = 
+        courseList[k].aPlus + courseList[k].a + courseList[k].aMinus + courseList[k].bPlus +
+        courseList[k].b + courseList[k].bMinus + courseList[k].cPlus + courseList[k].c + courseList[k].cMinus +
+        courseList[k].dPlus + courseList[k].d + courseList[k].dMinus + courseList[k].f
+    courseList[k].gpa = 
+        ((courseList[k].aPlus * 4 + courseList[k].a * 4 + courseList[k].aMinus * 3.67 + courseList[k].bPlus * 3.33 + 
+        courseList[k].b * 3 + courseList[k].bMinus * 2.67 + courseList[k].cPlus * 2.33 + courseList[k].c * 2 + courseList[k].cMinus * 
+        1.67 + courseList[k].dPlus * 1.33 + courseList[k].d * 1+ courseList[k].dMinus * 0.67 + courseList[k].f * 0) / 
+        courseList[k].students).toFixed(3)
 }
 
 // Return an array of courses filtered by subject
@@ -91,7 +92,7 @@ function courseFilter(subject) {
 }
 
 // Converts array of courses into array of graph values [x, y] where x is gpa and y is course number
-function convertToGraphData(input) {
+function convertToGraphPoints(input) {
     var data = []
     for (var i = 0; i < input.length; i++) {
         var point = new GraphData(input[i].number, input[i].gpa)
@@ -102,23 +103,29 @@ function convertToGraphData(input) {
 
 function App() {
 
-    var graphData = convertToGraphData(courseFilter("MATH"))
+    var graphPoints = convertToGraphPoints(courseFilter("MATH"))
+    var graphData = courseFilter("MATH")
+    var title = graphData[0].subject + ' Courses'
 
     return (
-        <>
-            <div>
+        <div>
 
-                <h1> Tool </h1>
-                
-                <ScatterChart width={500} height={500}>
-                    <CartesianGrid />
-                    <XAxis type="number" dataKey="x" name="course number" />
-                    <YAxis type="number" dataKey="y" name="gpa" />
-                    <Scatter data={graphData} fill="red" />
-                </ScatterChart>
+            <h1> Tool </h1>
+    
+            <ScatterChart width={600} height={650} margin={{bottom: 25, top: 25}}>
+                <CartesianGrid />
+                <XAxis type="number" dataKey="x" name="Course Number">
+                    <Label value="Course Number" dy={20} position="outsideBottom" />
+                    <Label value={title} dy={-600} position="centerTop" />
+                </XAxis>
+                <YAxis type="number" dataKey="y" name="Average GPA">
+                    <Label value="Average GPA" angle={-90} dx={-5} position="outsideLeft" />
+                </YAxis>
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                <Scatter data={graphPoints} fill="red" />
+            </ScatterChart>
 
-            </div>
-        </>
+        </div>
     );
 }
   
