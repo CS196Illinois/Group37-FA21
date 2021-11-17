@@ -1,0 +1,14 @@
+UofI orange: "#E84A27"
+UofI blue: "#13294B"
+
+Sprint 5
+- Create component that changes graphData to the selected subject
+    - Needs to be able to call convertToGraphData(courseFilte(foo)) -> { foo = user input}
+- Improve scatter chart
+    - Add axis labels
+    - On hover capability ie. show the course name, subject, number, gpa, and students
+    - Add title
+    - Center chart on page
+- Finish textbox on feedback page
+    - Allow user to submit their response
+    - Create dummy email that stores the users response
