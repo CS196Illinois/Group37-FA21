@@ -28,7 +28,7 @@ class Course {
 }
 
 // GraphData object model
-class GraphData {
+class GraphPoint {
     constructor(x, y) {
         this.x = x
         this.y = y
@@ -62,7 +62,8 @@ for (var i = 0; i < data.length; i++) {
         courseList[courseIndex].dMinus += data[i]['D-']
         courseList[courseIndex].f += data[i].F
     } else {
-        var course = new Course(data[i].Subject, data[i].Number, data[i]['Course Title'], "foo", "bar", data[i]['A+'],
+        var course = 
+            new Course(data[i].Subject, data[i].Number, data[i]['Course Title'], "foo", "bar", data[i]['A+'],
             data[i].A, data[i]['A-'], data[i]['B+'], data[i].B, data[i]['B-'], data[i]['C+'], data[i].C, data[i]['C-'],
             data[i]['D+'], data[i].D, data[i]['D-'], data[i].F)
         courseList.push(course)
@@ -79,6 +80,7 @@ for (var k = 0; k < courseList.length; k++) {
         1.67 + courseList[k].dPlus * 1.33 + courseList[k].d * 1+ courseList[k].dMinus * 0.67 + courseList[k].f * 0) / 
         courseList[k].students).toFixed(3)
 }
+console.log(courseList)
 
 // Return an array of courses filtered by subject
 function courseFilter(subject) {
@@ -95,7 +97,7 @@ function courseFilter(subject) {
 function convertToGraphPoints(input) {
     var data = []
     for (var i = 0; i < input.length; i++) {
-        var point = new GraphData(input[i].number, input[i].gpa)
+        var point = new GraphPoint(input[i].number, input[i].gpa)
         data.push(point)
     }
     return data
@@ -103,8 +105,8 @@ function convertToGraphPoints(input) {
 
 function App() {
 
-    var graphPoints = convertToGraphPoints(courseFilter("MATH"))
-    var graphData = courseFilter("MATH")
+    var graphPoints = convertToGraphPoints(courseFilter("HIST"))
+    var graphData = courseFilter("HIST")
     var title = graphData[0].subject + ' Courses'
 
     return (
@@ -118,8 +120,8 @@ function App() {
                     <Label value="Course Number" dy={20} position="outsideBottom" />
                     <Label value={title} dy={-600} position="centerTop" />
                 </XAxis>
-                <YAxis type="number" dataKey="y" name="Average GPA">
-                    <Label value="Average GPA" angle={-90} dx={-5} position="outsideLeft" />
+                <YAxis type="number" dataKey="y" name="Grade Average">
+                    <Label value="Grade Average" angle={-90} dx={-5} position="outsideLeft" />
                 </YAxis>
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Scatter data={graphPoints} fill="red" />
